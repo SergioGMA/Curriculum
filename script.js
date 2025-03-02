@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', function() {
             try {
                 // Criar um link para o arquivo PDF estático
                 const link = document.createElement('a');
-                link.href = 'sergio.pdf'; // Caminho para o arquivo PDF pré-gerado
+                link.href = 'document.pdf'; // Caminho para o arquivo PDF pré-gerado
                 link.download = 'curriculo.pdf'; // Nome do arquivo ao ser baixado
                 
                 // Adicionar o link ao documento, clicar nele e removê-lo
