@@ -610,3 +610,615 @@ body {
     background-color: #818cf8;
     color: #121212;
 } 
+/* Variáveis de cores - Modo Claro */
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-color: #212529;
+    --primary-color: #6366f1;
+    --secondary-color: #0ea5e9;
+    --accent-color: #10b981;
+    --border-color: #e9ecef;
+    --progress-bg: #e9ecef;
+    --timeline-line: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --gradient-start: #6366f1;
+    --gradient-end: #0ea5e9;
+}
+
+/* Variáveis de cores - Modo Escuro */
+.dark-mode {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #f8f9fa;
+    --primary-color: #818cf8;
+    --secondary-color: #38bdf8;
+    --accent-color: #34d399;
+    --border-color: #2e2e2e;
+    --progress-bg: #2e2e2e;
+    --timeline-line: #2e2e2e;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --gradient-start: #818cf8;
+    --gradient-end: #38bdf8;
+}
+
+/* Estilos Gerais */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: all 0.3s ease;
+}
+
+.container {
+    position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    animation: moveBackground 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveBackground {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(50px, 50px);
+    }
+}
+
+header .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Card e Sombras */
+.card {
+    background-color: var(--card-bg);
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.shadow {
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px var(--shadow-color);
+}
+
+/* Hexagon Icons */
+.hexagon-icon {
+    position: relative;
+    width: 50px;
+    height: 57.7px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.hexagon-icon::before,
+.hexagon-icon::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+}
+
+.hexagon-icon::before {
+    bottom: 100%;
+    border-bottom: 14.4px solid var(--gradient-start);
+}
+
+.hexagon-icon::after {
+    top: 100%;
+    border-top: 14.4px solid var(--gradient-end);
+}
+
+.section-title {
+    margin: 0;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+/* Foto de Perfil */
+.foto-perfil {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.foto-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 4px;
+    height: 100%;
+    width: 2px;
+    background-color: var(--timeline-line);
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -30px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    top: 10px;
+}
+
+.timeline-date {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.timeline-content {
+    padding-bottom: 5px;
+}
+
+.timeline-content ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.timeline-content li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Skill Items */
+.skill-item {
+    margin-bottom: 25px;
+}
+
+.skill-item h4 {
+    margin-bottom: 5px;
+}
+
+.progress {
+    height: 8px;
+    background-color: var(--progress-bg);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(to right, var(--gradient-start), var(--gradient-end));
+    transition: width 1s ease-in-out;
+}
+
+/* Portfolio */
+.portfolio-item {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    transition: all 0.3s ease;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.portfolio-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-img img {
+    transition: transform 0.5s ease;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(14, 165, 233, 0.8));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-img img {
+    transform: scale(1.1);
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-info a {
+    margin: 0 5px;
+}
+
+.portfolio-content {
+    padding: 15px;
+    background-color: var(--card-bg);
+}
+
+.portfolio-content h4 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.portfolio-content p {
+    margin-bottom: 0;
+    font-size: 0.9rem;
+}
+
+/* Contact Form */
+.form-control {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.25);
+    border-color: var(--primary-color);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: #ffffff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+    background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
+}
+
+/* Button Styles */
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: #ffffff;
+    background-color: rgba(99, 102, 241, 0.8);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+.btn-outline-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+    background: linear-gradient(135deg, var(--gradient-end), var(--gradient-start));
+    color: white;
+}
+
+/* Contact Info */
+.contact-info {
+    padding: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.contact-item i {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 1rem;
+}
+
+.contact-item h4 {
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.contact-item p {
+    margin-bottom: 0;
+}
+
+.social-icon, .social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover, .social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+    color: white;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.05),
+        rgba(255, 255, 255, 0.05) 10px,
+        transparent 10px,
+        transparent 20px
+    );
+    animation: moveBackground 20s linear infinite;
+    z-index: 0;
+}
+
+.footer .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* Media Queries */
+@media (max-width: 767.98px) {
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline-dot {
+        left: -20px;
+    }
+    
+    .hexagon-icon {
+        width: 40px;
+        height: 46.2px;
+        font-size: 1.2rem;
+    }
+    
+    .hexagon-icon::before,
+    .hexagon-icon::after {
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+    }
+    
+    .hexagon-icon::before {
+        border-bottom: 11.5px solid var(--gradient-start);
+    }
+    
+    .hexagon-icon::after {
+        border-top: 11.5px solid var(--gradient-end);
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+section {
+    animation: fadeIn 0.8s ease forwards;
+}
+
+section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+section:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+section:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+section:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+/* PDF Styling */
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+    
+    .card {
+        box-shadow: none;
+        margin-bottom: 20px;
+    }
+    
+    header, .footer, #download-pdf, #theme-toggle, #contact-form {
+        display: none;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    .row {
+        page-break-inside: avoid;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
+
+/* Estilos Globais */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Temas Claro e Escuro */
+.light-mode {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+.dark-mode {
+    background-color: #212529;
+    color: #f8f9fa;
+}
+
+.dark-mode .card {
+    background-color: #2c3135;
+    border-color: #343a40;
+}
+
+.dark-mode .section-title {
+    color: #f8f9fa;
+}
+
+.dark-mode .timeline-content h3,
+.dark-mode .timeline-content h4 {
+    color: #f8f9fa;
+}
+
+.dark-mode .timeline-dot {
+    background-color: #0d6efd;
+}
+
+.dark-mode .footer {
+    background-color: #2c3135;
+    color: #f8f9fa;
+}
+
+/* Melhorias para visibilidade no modo escuro */
+.dark-mode p, 
+.dark-mode h1, 
+.dark-mode h2, 
+.dark-mode h3, 
+.dark-mode h4, 
+.dark-mode h5, 
+.dark-mode h6,
+.dark-mode li,
+.dark-mode span,
+.dark-mode strong,
+.dark-mode a:not(.social-icon):not(.social-link) {
+    color: #f8f9fa !important;
+}
+
+.dark-mode .skill-item h4,
+.dark-mode .skill-item span {
+    color: #f8f9fa !important;
+}
+
+.dark-mode .lead,
+.dark-mode .contact-item h4,
+.dark-mode .contact-item p {
+    color: #f8f9fa !important;
+}
+
+/* Ajustes para botões no modo escuro */
+.dark-mode .btn-outline-primary {
+    color: #fff;
+    border-color: #818cf8;
+}
+
+.dark-mode .btn-outline-primary:hover {
+    background-color: #818cf8;
+    color: #121212;
+} 
